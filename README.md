@@ -1,38 +1,34 @@
-AI Expense Tracker
-An intelligent, Django-based web application to track, analyze, and visualize your expenses using machine learning and interactive charts.
+# 💸 AI-Powered Expense Tracker
 
-🚀 Features
-📋 Add, view, and delete daily expenses
+A Django-based web application for tracking and analyzing personal expenses using interactive data visualizations and AI techniques like clustering. Users can input, view, delete, and analyze their expenses through insightful graphs and charts.
 
-📊 Analyze expenses over time (monthly trends)
+---
 
-🧠 Categorize and cluster expenses using KMeans (ML)
+## 📌 Features
 
-📈 Interactive Plotly visualizations (bar & pie charts)
+- Add, view, and delete expenses by category
+- Monthly expense trend visualization (Matplotlib)
+- Category-wise spending analysis (Matplotlib & Plotly)
+- KMeans clustering for expense pattern recognition
+- Dynamic interactive graphs using Plotly
+- Clean UI using Django templates
 
-📉 Matplotlib plots for trend and clustering analysis
+---
 
-🧮 Built-in Elbow Method to determine optimal clusters
+## 📊 Tech Stack
 
-🛠️ Tech Stack
-Backend: Django
+- **Backend:** Python, Django
+- **Frontend:** HTML, CSS (Django Templates)
+- **Data Analysis:** Pandas, Matplotlib, Plotly
+- **Machine Learning:** Scikit-learn (KMeans clustering)
+- **Database:** SQLite (default Django DB)
 
-Frontend: HTML (Django templates), Plotly.js (via plotly.express)
+---
 
-Database: SQLite (default, configurable)
+## 🚀 Setup Instructions
 
-ML & Analysis: pandas, matplotlib, scikit-learn, plotly
+### 1. Clone the Repository
 
-📈 Analysis Tools
-1. Trend Analysis
-Visualizes monthly spending trends using matplotlib.
-
-2. Category Analysis
-Bar chart analysis by category (matplotlib & Plotly).
-
-3. Clustering Analysis
-Uses KMeans to find spending patterns by amount and category.
-
-4. Interactive Charts
-Uses Plotly for rich, responsive graphs (bar and pie charts).
-
+```bash
+git clone https://github.com/yourusername/ai-expense-tracker.git
+cd ai-expense-tracker
