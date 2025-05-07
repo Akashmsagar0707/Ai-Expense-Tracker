@@ -55,7 +55,7 @@ ROOT_URLCONF = 'expense_tracker.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Add this line to specify where your templates are
+        'DIRS': [BASE_DIR / 'expenses/templates'],  # Add this line to specify where your templates are
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,4 +129,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'   # where to go after successful login
+LOGOUT_REDIRECT_URL = '/login/'

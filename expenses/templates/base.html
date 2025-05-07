@@ -9,6 +9,17 @@
 </head>
 <body>
     <!-- Navbar -->
+    <nav>
+  {% if user.is_authenticated %}
+    Hello, {{ user.username }} |
+    <a href="{% url 'logout' %}">Log out</a>
+  {% else %}
+    <a href="{% url 'login' %}">Log in</a> |
+    <a href="{% url 'signup' %}">Sign up</a>
+  {% endif %}
+</nav>
+<hr>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Expense Tracker</a>

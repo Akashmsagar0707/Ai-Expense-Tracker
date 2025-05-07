@@ -1,25 +1,47 @@
 from django.shortcuts import render, redirect
 from .models import Expense
 from .forms import ExpenseForm
+from django.contrib.auth.decorators import login_required
 
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('login')  # redirect to your main view after login
+    else:
+        form = UserCreationForm()
+    return render(request, 'expenses/signup.html', {'form': form})
+
+
+@login_required
 def expense_list(request):
-    expenses = Expense.objects.all()
+    expenses = Expense.objects.filter(user=request.user)
     return render(request, 'expenses/expense_list.html', {'expenses': expenses})
 
+@login_required
 def add_expense(request):
     if request.method == 'POST':
         form = ExpenseForm(request.POST)
         if form.is_valid():
-            form.save()
+            expense = form.save(commit=False)  # Don't save yet
+            expense.user = request.user  # Assign the logged-in user
+            expense.save()  # Now save the expense
             return redirect('expense_list')
     else:
         form = ExpenseForm()
     return render(request, 'expenses/add_expense.html', {'form': form})
 
-
 from .expense_analysis import expense_trend_analysis, category_spending_analysis, clustering_expenses
 from django.shortcuts import render
-
+@login_required
 def expense_analysis(request):
     # Run the analysis functions
     expense_trend_analysis()  # You can modify these to return data or graphs if necessary
@@ -47,7 +69,7 @@ import plotly.express as px
 import pandas as pd
 from django.shortcuts import render
 from .models import Expense
-
+@login_required
 def expense_analysis(request):
     # Retrieve all expenses from the database
     expenses = Expense.objects.all()
