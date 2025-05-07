@@ -23,3 +23,16 @@ Database: SQLite (default, configurable)
 
 ML & Analysis: pandas, matplotlib, scikit-learn, plotly
 
+📈 Analysis Tools
+1. Trend Analysis
+Visualizes monthly spending trends using matplotlib.
+
+2. Category Analysis
+Bar chart analysis by category (matplotlib & Plotly).
+
+3. Clustering Analysis
+Uses KMeans to find spending patterns by amount and category.
+
+4. Interactive Charts
+Uses Plotly for rich, responsive graphs (bar and pie charts).
+
